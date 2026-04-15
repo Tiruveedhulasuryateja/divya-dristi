@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Divya Dristi</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="space-wrap">
+
+    <!-- 🌙 MOON -->
+    <div class="moon-area">
+        <svg class="moon-svg" viewBox="0 0 70 70" id="moonSvg">
+            <defs>
+                <radialGradient id="moonGrad">
+                    <stop offset="0%" stop-color="#fffde0"/>
+                    <stop offset="100%" stop-color="#b8954e"/>
+                </radialGradient>
+            </defs>
+            <circle cx="35" cy="35" r="18" fill="url(#moonGrad)"></circle>
+        </svg>
+        <div class="nakshatra-label">27 Nakshatras</div>
+    </div>
+
+    <!-- 🌌 STARS -->
+    <div class="twinkle-stars">
+        <span class="twinkle" style="top:10%;left:20%"></span>
+        <span class="twinkle" style="top:30%;left:70%"></span>
+        <span class="twinkle" style="top:60%;left:40%"></span>
+        <span class="twinkle" style="top:80%;left:80%"></span>
+    </div>
+
+    <div class="falling-stars">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+    </div>
+
+    <!-- 🪐 PLANETS -->
+    <div class="planet-system" id="planetSystem">
+        <div class="sun-core"></div>
+    </div>
+
+    <!-- 📦 CARD -->
+    <div class="main-card">
+
+       <div class="header-deco">
+    <span></span><span></span><span></span><span></span>
+</div>
+
+        <h1 class="astro-title">DIVYA DRISTI</h1>
+        <p class="astro-sub">VEDIC & WESTERN ASTROLOGY</p>
+
+        <input type="date" id="dob" class="field-input">
+
+        <div class="row2">
+            <select id="hour" class="field-input"></select>
+            <select id="minute" class="field-input"></select>
+        </div>
+
+    <button class="btn" id="revealBtn">
+    ✨ Reveal My Birth Chart ✨
+</button>
+
+        <div id="result"></div>
+<div class="action-row">
+    <button class="btn action-btn" onclick="downloadPDF()">📄 Download PDF</button>
+    <button class="btn action-btn" onclick="shareResult()">📤 Share</button>
+</div>
+<div class="astro-sparkles">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+    </div>
+
+</div>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</body>
+</html>

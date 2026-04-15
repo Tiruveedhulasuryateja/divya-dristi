@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap');
+
+/* ===== GLOBAL ===== */
+body{
+    margin:0;
+    font-family:'Raleway',sans-serif;
+    color:white;
+}
+.astro-sparkles{
+    position:absolute;
+    top:20px;
+    right:20px;
+    pointer-events:none;
+}
+
+.astro-sparkles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:#ffd700;
+    border-radius:50%;
+    box-shadow:0 0 10px #ffd700, 0 0 20px #ffcc00;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+/* random positions */
+.astro-sparkles span:nth-child(1){ top:0; left:0; }
+.astro-sparkles span:nth-child(2){ top:20px; left:15px; animation-delay:0.5s;}
+.astro-sparkles span:nth-child(3){ top:10px; left:30px; animation-delay:1s;}
+
+@keyframes sparkle{
+    0%,100%{ opacity:0.3; transform:scale(1);}
+    50%{ opacity:1; transform:scale(1.8);}
+}
+/* ===== BACKGROUND ===== */
+.space-wrap{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    background: #020818 url('Images/space-bg.jpg') center/cover no-repeat;
+}
+
+/* DARK OVERLAY */
+.space-wrap::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(2,8,24,0.75);
+}
+
+/* ===== MAIN CARD ===== */
+.main-card{
+    width:90%;
+    max-width:420px;
+    padding:30px;
+    border-radius:22px;
+
+    background:rgba(10,10,40,0.55);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(200,169,110,0.25);
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.6),
+        0 0 60px rgba(100,100,255,0.1);
+
+    text-align:center;
+    z-index:2;
+}
+
+/* ===== HEADER DOTS ===== */
+.header-deco{
+    margin-bottom:10px;
+}
+.header-deco span{
+    width:6px;
+    height:6px;
+    display:inline-block;
+    margin:4px;
+    border-radius:50%;
+
+    background:#c8a96e;
+
+    box-shadow:
+        0 0 5px #c8a96e,
+        0 0 10px #c8a96e,
+        0 0 20px rgba(200,169,110,0.8);
+
+    animation: dotGlow 1.5s infinite ease-in-out;
+}
+.header-deco span:nth-child(1){
+    animation-delay: 0s;
+}
+.header-deco span:nth-child(2){
+    animation-delay: 0.3s;
+}
+.header-deco span:nth-child(3){
+    animation-delay: 0.6s;
+}
+.header-deco span:nth-child(4){
+    animation-delay: 0.9s;
+}
+@keyframes dotGlow{
+    0%, 100%{
+        transform: scale(1);
+        opacity:0.5;
+        box-shadow:
+            0 0 5px #c8a96e;
+    }
+
+    50%{
+        transform: scale(1.8);
+        opacity:1;
+        box-shadow:
+            0 0 10px #ffd700,
+            0 0 20px #ffd700,
+            0 0 40px rgba(255,215,0,0.9);
+    }
+}
+
+/* ===== TITLE ===== */
+.astro-title{
+    font-family:'Cinzel';
+    font-size:26px;
+    padding:10px 20px;
+    display:inline-block;
+    margin-bottom:10px;
+    position:relative;
+    color:#e8d5a3;
+}
+
+/* Animated border */
+.astro-title::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:2px;
+    padding:1px;
+  text-shadow:
+        0 0 10px rgba(200,169,110,0.8),
+        0 0 20px rgba(200,169,110,0.6);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #c8a96e,
+        #ffd700,
+        #c8a96e,
+        transparent
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+
+    animation: glowMove 3s linear infinite;
+}
+
+/* Animation */
+@keyframes glowMove{
+    0%{ background-position:0% }
+    100%{ background-position:200% }
+}
+.astro-sub{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#6060a0;
+    margin-bottom:20px;
+}
+
+/* ===== INPUTS ===== */
+.field-group{
+    text-align:left;
+    margin-bottom:12px;
+}
+
+.field-group label{
+    font-size:10px;
+    color:#7070b0;
+    letter-spacing:1px;
+}
+
+.field-input{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+
+    border-radius:10px;
+    border:1px solid #2a2a6a;
+
+    background:rgba(10,10,40,0.85);
+    color:#c8c8f0;
+
+    outline:none;
+}
+
+.field-input:focus{
+    border-color:#c8a96e;
+    box-shadow:0 0 10px rgba(200,169,110,0.5);
+}
+
+/* ===== ROW ===== */
+.row2{
+    display:flex;
+    gap:10px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+
+    border-radius:50px;
+    border:1px solid #c8a96e;
+
+    background:transparent;
+    color:#e8d5a3;
+
+    font-family:'Cinzel';
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    box-shadow:0 0 15px rgba(200,169,110,0.5);
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#c8a96e;
+    color:#0a0a1a;
+    box-shadow:0 0 25px #c8a96e;
+}
+
+/* ===== RESULT ===== */
+.result-box{
+    margin-top:20px;
+    padding:15px;
+    border-radius:12px;
+    color:#4040a0;
+    background:rgba(10,10,26,0.9);
+    border:1px solid #1a1a4a;
+}
+
+.result-box .dl{
+    color:#e8d5a3 !important;
+}
+.result-title{
+    font-family:'Cinzel';
+    font-size:20px;
+    color:#e8d5a3;
+}
+
+.result-sub{
+    font-size:12px;
+    color:#8080b0;
+    margin-top:5px;
+}
+
+/* ===== BADGES ===== */
+.badge-row{
+    margin-top:10px;
+    display:flex;
+    gap:6px;
+    justify-content:center;
+}
+
+.badge{
+    font-size:10px;
+    padding:4px 10px;
+    border-radius:20px;
+}
+
+.air{
+    background:#2a1f05;
+    border:1px solid #c8a96e;
+}
+
+.fixed{
+    background:#1a1540;
+    border:1px solid #6060d0;
+}
+
+.lord{
+    background:#041a14;
+    border:1px solid #1d9e75;
+}
+
+/* ===== GRID ===== */
+.detail-grid{
+    margin-top:15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.box{
+    background:rgba(10,10,40,0.8);
+    border:1px solid #1a1a4a;
+    padding:10px;
+    border-radius:8px;
+    font-size:12px;
+}
+/* ===== MOON (TOP LEFT) ===== */
+.moon-area{
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index:5;
+    text-align:center;
+}
+
+.moon-svg{
+    width:80px;
+    height:80px;
+    filter:
+        drop-shadow(0 0 10px rgba(255,220,120,0.6))
+        drop-shadow(0 0 25px rgba(255,200,100,0.4));
+}
+
+.nakshatra-label{
+    font-size:9px;
+    color:#7070d0;
+    margin-top:5px;
+}
+
+/* ROTATING NAKSHATRA RING */
+.moon-orbit{
+    position:absolute;
+    top:-10px;
+    left:-10px;
+    width:100px;
+    height:100px;
+    animation:rotateMoon 25s linear infinite;
+}
+
+@keyframes rotateMoon{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}
+
+/* ===== SUN + PLANETS ===== */
+.planet-system{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:240px;
+    height:240px;
+}
+.sun-core{
+    position:absolute;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background: radial-gradient(circle,#ffd700,#ff8c00,#ff4500);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:
+        0 0 20px #ffd700,
+        0 0 40px #ff8c00,
+        0 0 80px #ff4500;
+    animation:sunPulse 2s infinite ease-in-out;
+}
+
+@keyframes sunPulse{
+    0%,100%{ transform:translate(-50%,-50%) scale(1); }
+    50%{ transform:translate(-50%,-50%) scale(1.1); }
+}
+
+/* ===== PLANET SYSTEM ENHANCED ===== */
+
+.orbit-ring{
+    position:absolute;
+    border-radius:50%;
+    border:1px dashed rgba(200,169,110,0.5);
+    box-shadow:0 0 15px rgba(200,169,110,0.3);
+}
+
+/* PLANET */
+.planet{
+    position:absolute;
+    border-radius:50%;
+    box-shadow:0 0 10px currentColor;
+}
+
+/* LABEL */
+.planet-label{
+    position:absolute;
+    font-size:8px;
+    color:#9090e0;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    white-space:nowrap;
+}
+
+/* SATURN RING */
+.saturn-ring{
+    position:absolute;
+    width:16px;
+    height:6px;
+    border:1px solid rgba(200,169,110,0.7);
+    border-radius:50%;
+    transform:rotate(25deg);
+    top:50%;
+    left:50%;
+    transform-origin:center;
+    pointer-events:none;
+}
+
+/* SUN GLOW */
+.sun-core{
+    box-shadow:
+        0 0 20px #ffd700,
+        0 0 40px #ff8c00,
+        0 0 80px #ff4500,
+        0 0 120px rgba(255,140,0,0.5);
+}
+
+/* MOON STAR GLOW */
+.nakshatra-star{
+    filter:drop-shadow(0 0 6px currentColor);
+}
+
+/* TWINKLE MORE */
+.twinkle{
+    animation:twinkle 2s infinite ease-in-out;
+}
+/* ===== FALLING STARS ===== */
+.falling-stars{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    opacity:0.8;
+    border-radius:50%;
+    animation:fall linear infinite;
+}
+
+.star:nth-child(odd){
+    left:10%;
+    animation-duration:6s;
+}
+
+.star:nth-child(even){
+    left:30%;
+    animation-duration:8s;
+}
+
+@keyframes fall{
+    0%{ transform:translateY(-20px); opacity:0; }
+    10%{ opacity:1; }
+    100%{ transform:translateY(100vh); opacity:0; }
+}
+
+/* ===== TWINKLE STARS ===== */
+.twinkle-stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.twinkle{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{ opacity:0.2; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.6); }
+}
+/* RESULT HEADER */
+.result-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+}
+
+/* ICON CIRCLE */
+.sign-circle{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid #c8a96e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    background:#0a0a1a;
+}
+
+/* NAME */
+.sign-name{
+    font-family:'Cinzel';
+    color:#e8d5a3;
+    font-size:16px;
+}
+
+.sign-sub{
+    font-size:11px;
+    color:#6060a0;
+}
+
+/* BADGES */
+.bg{
+    background:#2a1f05;
+    border:1px solid #c8a96e;
+    color:#c8a96e;
+}
+.bp{
+    background:#1a1540;
+    border:1px solid #6060d0;
+    color:#9090e0;
+}
+.bt{
+    background:#041a14;
+    border:1px solid #1d9e75;
+    color:#5dcaa5;
+}
+
+/* GRID ITEMS */
+.di{
+    background:rgba(10,10,40,0.9);
+    border:1px solid #1a1a4a;
+    padding:10px;
+    border-radius:8px;
+}
+
+.dl{
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    color:#e8d5a3; /* GOLD */
+
+    text-shadow:
+        0 0 6px #c8a96e,
+        0 0 12px #c8a96e,
+        0 0 20px rgba(200,169,110,0.8);
+}
+
+.dv{
+    font-size:12px;
+    color:#c0c0e8;
+}
+
+/* TRAIT BOX */
+.trait-box{
+    margin-top:12px;
+    padding:14px;
+    border-left:3px solid #c8a96e;
+    background:rgba(10,10,40,0.95);
+    box-shadow:0 0 15px rgba(200,169,110,0.2);
+    border-radius:8px;
+}
+.trait-text{
+    font-size:14px;
+    color:#d0d0ff;
+    line-height:1.6;
+    letter-spacing:0.5px;
+    font-weight:300;
+    text-align:center;
+}
+.action-row{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+}
+
+.action-btn{
+    flex:1;
+    font-size:12px;
+    padding:10px;
+}
